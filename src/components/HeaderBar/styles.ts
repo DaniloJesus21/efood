@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { LinkButton } from '../Button/styles'
+import { cores } from '../../styles'
 
 export const HeaderBanner = styled.header`
   width: 100%;
@@ -15,4 +17,13 @@ export const HeaderBanner = styled.header`
     height: 100%;
     padding: 40px 0;
   }
+`
+
+export const Link = styled(LinkButton)`
+  background-color: transparent;
+  color: ${cores.orange};
+  text-decoration: none;
+  padding: 4px 6px;
+  cursor: pointer;
+  text-align: center;
 `

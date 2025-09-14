@@ -34,8 +34,8 @@ export const CardContent = styled.div`
 `
 
 export const CardDescription = styled.p`
-  text-align: justify;
-  margin-bottom: 14px;
+  font-size: 14px;
+  margin-bottom: 16px;
 `
 
 export const StyledLink = styled(Link)`
