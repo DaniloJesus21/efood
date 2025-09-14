@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const HeaderBanner = styled.header`
   width: 100%;
-  height: 384px;
+  height: 162px;
   display: block;
   background-repeat: no-repeat;
   background-size: cover;
@@ -10,15 +10,9 @@ export const HeaderBanner = styled.header`
 
   div {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: space-between;
     height: 100%;
     padding: 40px 0;
-  }
-
-  h1 {
-    font-size: 40px;
-    text-align: center;
   }
 `

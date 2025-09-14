@@ -5,19 +5,14 @@ import {
   Description,
   StyledButton
 } from './styles'
+import type { Food } from '../../models/Food'
 
-export type FoodCardProps = {
-  image: string
-  name: string
-  description: string
-}
+type Props = Omit<Food, 'id'>
 
-const FoodCard = ({ image, name, description }: FoodCardProps) => {
+const FoodCard = ({ image, name, description }: Props) => {
   return (
     <Container>
-      <FoodImage>
-        <img src={image} alt={name} />
-      </FoodImage>
+      <FoodImage src={image} alt={name} />
       <Title>{name}</Title>
       <Description>{description}</Description>
       <StyledButton type="button">Adicionar ao carrinho</StyledButton>

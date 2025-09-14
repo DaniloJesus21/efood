@@ -2,8 +2,8 @@ import RestauranteCard from '../RestauranteCard'
 import Restaurante from '../../models/Restaurante'
 import { Container } from './styles'
 
-import japanese from '../../assets/images/japanese.jpg'
-import italian from '../../assets/images/italian.jpg'
+import japanese from '../../assets/images/japanese_restaurant.png'
+import italian from '../../assets/images/italian_restaurant.png'
 
 const restaurantes: Restaurante[] = [
   {
