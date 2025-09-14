@@ -1,22 +1,11 @@
-import japanese from '../../assets/images/japanese_restaurant.png'
-import italian from '../../assets/images/italian_restaurant.png'
-import estrela from '../../assets/images/estrela.png'
+import RestauranteCard from '../RestauranteCard'
+import Restaurante from '../../models/Restaurante'
+import { Container } from './styles'
 
-import {
-  StyledMain,
-  Card,
-  CardImage,
-  CardContent,
-  Tag,
-  Tags,
-  TitleContainer,
-  Title,
-  Rating,
-  Link,
-  CardDescription
-} from './styles'
+import japanese from '../../assets/images/japanese.jpg'
+import italian from '../../assets/images/italian.jpg'
 
-const restaurantes = [
+const restaurantes: Restaurante[] = [
   {
     id: 1,
     image: japanese,
@@ -73,36 +62,24 @@ const restaurantes = [
   }
 ]
 
-const Main = () => {
+const RestauranteList = () => {
   return (
-    <>
-      <StyledMain>
-        <div className="container">
-          {restaurantes.map((restaurant) => (
-            <Card key={restaurant.id}>
-              <CardImage src={restaurant.image} alt={restaurant.name} />
-              <Tags>
-                {restaurant.info.map((info) => (
-                  <Tag key={info}>{info}</Tag>
-                ))}
-              </Tags>
-              <CardContent>
-                <TitleContainer>
-                  <Title>{restaurant.name}</Title>
-                  <Rating>
-                    <p>{restaurant.rating}</p>
-                    <img src={estrela} alt="Estrela" />
-                  </Rating>
-                </TitleContainer>
-                <CardDescription>{restaurant.description}</CardDescription>
-                <Link href="#">Saiba mais</Link>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </StyledMain>
-    </>
+    <Container>
+      <div className="container">
+        {restaurantes.map((restaurante) => (
+          <RestauranteCard
+            key={restaurante.id}
+            id={restaurante.id}
+            image={restaurante.image}
+            name={restaurante.name}
+            description={restaurante.description}
+            info={restaurante.info}
+            rating={restaurante.rating}
+          />
+        ))}
+      </div>
+    </Container>
   )
 }
 
-export default Main
+export default RestauranteList

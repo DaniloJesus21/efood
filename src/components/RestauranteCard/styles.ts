@@ -1,16 +1,6 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
-
-export const StyledMain = styled.main`
-  padding: 80px 0;
-  background-color: ${cores.bgPrimary};
-
-  .container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-  }
-`
+import { Link } from 'react-router-dom'
 
 export const Card = styled.div`
   width: 472px;
@@ -48,7 +38,7 @@ export const CardDescription = styled.p`
   margin-bottom: 14px;
 `
 
-export const Link = styled.a`
+export const StyledLink = styled(Link)`
   display: inline-block;
   background-color: ${cores.orange};
   color: ${cores.white};
