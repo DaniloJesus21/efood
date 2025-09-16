@@ -47,7 +47,7 @@ const FoodCard = ({ prato }: { prato: Prato }) => {
                   <Title>{prato.nome}</Title>
                   <Description>
                     <p>{prato.descricao}</p>
-                    <p>{prato.porcao}</p>
+                    <p>Serve: {prato.porcao}</p>
                   </Description>
                   <StyledButton type="button">
                     {`Adicionar ao carrinho - R$ ${prato.preco.toFixed(2)}`}
