@@ -8,6 +8,6 @@ export const Container = styled.main`
   .container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+    gap: 32px;
   }
 `

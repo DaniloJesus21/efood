@@ -6,7 +6,7 @@ export const ButtonContainer = styled.button`
   display: inline-block;
   background-color: ${cores.bgSecondary};
   color: ${cores.orange};
-  padding: 4px 0px;
+  padding: 4px 6px;
   cursor: pointer;
   text-align: center;
   border: none;
