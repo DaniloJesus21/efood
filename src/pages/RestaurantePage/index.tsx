@@ -5,7 +5,6 @@ import FoodList from '../../components/FoodList'
 import Footer from '../../components/Footer'
 import HeaderBar from '../../components/HeaderBar'
 import Capa from '../../components/Capa'
-import FoodCard from '../../components/FoodCard'
 
 import type { Restaurante } from '../Home'
 
@@ -15,7 +14,7 @@ const RestaurantePage = () => {
   const [restaurante, setRestaurante] = useState<Restaurante>()
 
   useEffect(() => {
-    fetch(`https://ebac-fake-api.vercel.app/api/eplay/jogos/${id}`)
+    fetch(`https://ebac-fake-api.vercel.app/api/efood/restaurantes/${id}`)
       .then((response) => response.json())
       .then((data) => {
         console.log('API:', data)
@@ -35,9 +34,7 @@ const RestaurantePage = () => {
     <>
       <HeaderBar />
       <Capa restaurante={restaurante} />
-      <FoodList>
-        <FoodCard restaurante={restaurante} />
-      </FoodList>
+      <FoodList cardapio={restaurante.cardapio} />
       <Footer />
     </>
   )

@@ -1,15 +1,15 @@
-import type { JSX } from 'react'
-// import FoodCard from '../FoodCard'
+import FoodCard from '../FoodCard'
 import { Container } from './styles'
+import type { Prato } from '../../pages/Home'
 
-export type Props = {
-  children: JSX.Element
-}
-
-const FoodList = ({ children }: Props) => {
+const FoodList = ({ cardapio }: { cardapio: Prato[] }) => {
   return (
     <Container>
-      <div className="container">{children}</div>
+      <div className="container">
+        {cardapio.map((prato) => (
+          <FoodCard key={prato.id} prato={prato} />
+        ))}
+      </div>
     </Container>
   )
 }

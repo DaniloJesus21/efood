@@ -13,33 +13,23 @@ import {
   ImgModal
 } from './styles'
 import fechar from '../../assets/images/fechar.png'
-import type { Restaurante } from '../../pages/Home'
+import type { Prato } from '../../pages/Home'
+import { getDescricao } from '../../utils'
 
-type Props = {
-  restaurante: Restaurante
-}
-
-const FoodCard = ({ restaurante }: Props) => {
+const FoodCard = ({ prato }: { prato: Prato }) => {
   const [showModal, setShowModal] = useState(false)
-  const openModal = () => {
-    setShowModal(true)
-  }
 
   return (
     <>
-      <Container key={restaurante.id + 1}>
-        <FoodImage
-          src={restaurante.cardapio[restaurante.id + 1].foto}
-          alt={restaurante.cardapio[restaurante.id + 1].nome}
-        />
-        <Title>{restaurante.cardapio[restaurante.id + 1].nome}</Title>
-        <Description>
-          {restaurante.cardapio[restaurante.id + 1].descricao}
-        </Description>
-        <StyledButton type="button" onClick={openModal}>
+      <Container>
+        <FoodImage src={prato.foto} alt={prato.nome} />
+        <Title>{prato.nome}</Title>
+        <Description>{getDescricao(prato.descricao, 150)}</Description>
+        <StyledButton type="button" onClick={() => setShowModal(true)}>
           Adicionar ao carrinho
         </StyledButton>
       </Container>
+
       {showModal && (
         <Modal onClick={() => setShowModal(false)}>
           <div className="container">
@@ -52,18 +42,15 @@ const FoodCard = ({ restaurante }: Props) => {
                 />
               </HeaderModal>
               <MainModal>
-                <ImgModal
-                  src={restaurante.cardapio[restaurante.id + 1].foto}
-                  alt={restaurante.cardapio[restaurante.id + 1].nome}
-                />
+                <ImgModal src={prato.foto} alt={prato.nome} />
                 <ContentModal>
-                  <Title>{restaurante.cardapio[restaurante.id + 1].nome}</Title>
+                  <Title>{prato.nome}</Title>
                   <Description>
-                    <p>{restaurante.cardapio[restaurante.id + 1].descricao}</p>
-                    <p>{restaurante.cardapio[restaurante.id + 1].porcao}</p>
+                    <p>{prato.descricao}</p>
+                    <p>{prato.porcao}</p>
                   </Description>
                   <StyledButton type="button">
-                    {`Adicionar ao carrinho - R$ ${restaurante.cardapio[restaurante.id + 1].preco.toFixed(2)}`}
+                    {`Adicionar ao carrinho - R$ ${prato.preco.toFixed(2)}`}
                   </StyledButton>
                 </ContentModal>
               </MainModal>

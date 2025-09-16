@@ -11,6 +11,7 @@ import {
   Rating,
   CardDescription
 } from './styles'
+import { getDescricao } from '../../utils'
 
 type Props = {
   id: number
@@ -31,13 +32,6 @@ const RestauranteCard = ({
   descricao,
   capa
 }: Props) => {
-  const getDescricao = (descricao: string) => {
-    if (descricao.length > 250) {
-      return `${descricao.substring(0, 247)}...`
-    }
-    return descricao
-  }
-
   return (
     <Card key={id}>
       <CardImage src={capa} alt={titulo} />
@@ -53,7 +47,7 @@ const RestauranteCard = ({
             <img src={estrela} alt="Estrela" />
           </Rating>
         </TitleContainer>
-        <CardDescription>{getDescricao(descricao)}</CardDescription>
+        <CardDescription>{getDescricao(descricao, 250)}</CardDescription>
         <LinkButton type="link" to={`/restaurante/${id}`}>
           Saiba mais
         </LinkButton>
