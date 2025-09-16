@@ -1,14 +1,17 @@
-import banner from '../../assets/images/italian_restaurant.png'
-
+import type { Restaurante } from '../../pages/Home'
 import { Container, Tipo, TitleCapa } from './style'
 
-const Capa = () => {
+type Props = {
+  restaurante: Restaurante
+}
+
+const Capa = ({ restaurante }: Props) => {
   return (
-    <Container style={{ backgroundImage: `url(${banner})` }}>
+    <Container style={{ backgroundImage: `url(${restaurante.capa})` }}>
       <div className="container">
         <div className="content">
-          <Tipo>Italiana</Tipo>
-          <TitleCapa>La Dolce Vita Trattoria</TitleCapa>
+          <Tipo>{restaurante.tipo}</Tipo>
+          <TitleCapa>{restaurante.titulo}</TitleCapa>
         </div>
       </div>
     </Container>

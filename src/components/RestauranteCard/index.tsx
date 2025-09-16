@@ -14,39 +14,47 @@ import {
 
 type Props = {
   id: number
-  image: string
-  name: string
-  description: string
-  info: string[]
-  rating: number
+  titulo: string
+  destacado: boolean
+  tipo: string
+  avaliacao: number
+  descricao: string
+  capa: string
 }
 
 const RestauranteCard = ({
   id,
-  image,
-  name,
-  description,
-  info,
-  rating
+  titulo,
+  destacado,
+  tipo,
+  avaliacao,
+  descricao,
+  capa
 }: Props) => {
+  const getDescricao = (descricao: string) => {
+    if (descricao.length > 250) {
+      return `${descricao.substring(0, 247)}...`
+    }
+    return descricao
+  }
+
   return (
     <Card key={id}>
-      <CardImage src={image} alt={name} />
+      <CardImage src={capa} alt={titulo} />
       <Tags>
-        {info.map((info) => (
-          <Tag key={info}>{info}</Tag>
-        ))}
+        {destacado && <Tag>Destaque da semana</Tag>}
+        <Tag>{tipo}</Tag>
       </Tags>
       <CardContent>
         <TitleContainer>
-          <Title>{name}</Title>
+          <Title>{titulo}</Title>
           <Rating>
-            <p>{rating}</p>
+            <p>{avaliacao}</p>
             <img src={estrela} alt="Estrela" />
           </Rating>
         </TitleContainer>
-        <CardDescription>{description}</CardDescription>
-        <LinkButton type="link" to="/restaurante">
+        <CardDescription>{getDescricao(descricao)}</CardDescription>
+        <LinkButton type="link" to={`/restaurante/${id}`}>
           Saiba mais
         </LinkButton>
       </CardContent>
