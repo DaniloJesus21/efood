@@ -59,6 +59,7 @@ export const CardModal = styled.div`
   gap: 24px;
   justify-content: space-between;
   position: relative;
+  z-index: 2;
 `
 
 export const HeaderModal = styled.div`
