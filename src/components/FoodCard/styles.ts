@@ -43,10 +43,6 @@ export const Modal = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1;
-
-  .container {
-    margin: 0 auto;
-  }
 `
 
 export const CardModal = styled.div`
@@ -96,6 +92,10 @@ export const ContentModal = styled.div`
     font-size: 14px;
     font-weight: 400;
     line-height: 22px;
+
+    > p {
+      margin-bottom: 16px;
+    }
   }
 `
 

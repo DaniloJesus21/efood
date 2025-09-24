@@ -33,7 +33,7 @@ const FoodCard = ({ prato }: { prato: Prato }) => {
       {showModal && (
         <Modal onClick={() => setShowModal(false)}>
           <div className="container">
-            <CardModal>
+            <CardModal onClick={(e) => e.stopPropagation()}>
               <HeaderModal>
                 <img
                   src={fechar}
