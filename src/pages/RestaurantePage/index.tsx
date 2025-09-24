@@ -6,6 +6,7 @@ import HeaderBar from '../../components/HeaderBar'
 import Capa from '../../components/Capa'
 
 import { useGetRestauranteQuery } from '../../services/api'
+import Cart from '../../components/Cart'
 
 const RestaurantePage = () => {
   const { id } = useParams()
@@ -26,6 +27,7 @@ const RestaurantePage = () => {
       <Capa restaurante={restaurante} />
       <FoodList cardapio={restaurante.cardapio} />
       <Footer />
+      <Cart />
     </>
   )
 }

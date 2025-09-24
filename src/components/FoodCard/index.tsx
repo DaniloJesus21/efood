@@ -26,7 +26,7 @@ const FoodCard = ({ prato }: { prato: Prato }) => {
         <Title>{prato.nome}</Title>
         <Description>{getDescricao(prato.descricao, 150)}</Description>
         <StyledButton type="button" onClick={() => setShowModal(true)}>
-          Adicionar ao carrinho
+          Mais detalhes
         </StyledButton>
       </Container>
 
