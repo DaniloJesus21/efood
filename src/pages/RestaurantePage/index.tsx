@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 import FoodList from '../../components/FoodList'
@@ -6,26 +5,17 @@ import Footer from '../../components/Footer'
 import HeaderBar from '../../components/HeaderBar'
 import Capa from '../../components/Capa'
 
-import type { Restaurante } from '../Home'
+import { useGetRestauranteQuery } from '../../services/api'
 
 const RestaurantePage = () => {
   const { id } = useParams()
 
-  const [restaurante, setRestaurante] = useState<Restaurante>()
-
-  useEffect(() => {
-    fetch(`https://ebac-fake-api.vercel.app/api/efood/restaurantes/${id}`)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('API:', data)
-        setRestaurante(data)
-      })
-  }, [id])
+  const { data: restaurante } = useGetRestauranteQuery(id!)
 
   if (!restaurante) {
     return (
       <div className="container">
-        <h1>Carregando...</h1>
+        <h2>Carregando...</h2>
       </div>
     )
   }
