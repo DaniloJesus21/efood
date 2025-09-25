@@ -7,12 +7,14 @@ export const Container = styled.div`
   height: 280px;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
 
   .container {
-    max-width: 100%;
-    background-color: #000000a7;
-    width: 100%;
-    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    z-index: 1;
   }
 
   .content {
@@ -22,16 +24,30 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    padding: 32px 0;
+    padding: 24px 0;
+  }
+
+  &::after {
+    position: absolute;
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    content: '';
+    top: 0;
+    left: 0;
+    opacity: 0.5;
   }
 `
 
 export const TitleCapa = styled(Title)`
   color: ${cores.white};
   font-size: 32px;
+  font-weight: 900;
 `
 
 export const Tipo = styled.p`
-  color: #707070ff;
+  color: ${cores.white};
   font-size: 32px;
+  font-weight: 100;
+  margin-bottom: 156px;
 `

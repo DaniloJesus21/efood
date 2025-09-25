@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { LinkButton } from '../Button/styles'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const HeaderBanner = styled.header`
   width: 100%;
@@ -16,6 +16,10 @@ export const HeaderBanner = styled.header`
     justify-content: space-between;
     height: 100%;
     padding: 40px 0;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    display: none;
   }
 `
 

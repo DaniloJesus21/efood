@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const Container = styled.main`
   padding: 80px 0;
@@ -9,5 +9,9 @@ export const Container = styled.main`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
+
+    @media (max-width: ${breakpoints.desktop}) {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 `

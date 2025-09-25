@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import Button from '../Button'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const Container = styled.div`
   background-color: ${cores.orange};
@@ -56,6 +56,11 @@ export const CardModal = styled.div`
   justify-content: space-between;
   position: relative;
   z-index: 2;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    width: 768px;
+    margin: 0 auto;
+  }
 `
 
 export const HeaderModal = styled.div`
