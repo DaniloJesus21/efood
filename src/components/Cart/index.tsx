@@ -1,21 +1,33 @@
 import {
-  Aside,
   ButtonCompra,
+  CartContainer,
   Icone,
   Imagem,
   Lista,
   Overlay,
   Produto,
   ProdutoContent,
+  Sidebar,
   ValorContainer
 } from './styles'
 import lixeira from '../../assets/images/lixeira.png'
+import { useDispatch, useSelector } from 'react-redux'
+import type { RootState } from '../../store'
+import { close } from '../../store/reducers/Cart'
 
 const Cart = () => {
+  const { isOpen } = useSelector((state: RootState) => state.cart)
+
+  const dispatch = useDispatch()
+
+  const closeCart = () => {
+    dispatch(close())
+  }
+
   return (
-    <div>
-      <Overlay></Overlay>
-      <Aside>
+    <CartContainer className={isOpen ? 'is-open' : ''}>
+      <Overlay onClick={closeCart} />
+      <Sidebar>
         <Lista>
           <Produto>
             <ProdutoContent>
@@ -33,8 +45,8 @@ const Cart = () => {
           <span>0,00</span>
         </ValorContainer>
         <ButtonCompra type="button">Continuar com a entrega</ButtonCompra>
-      </Aside>
-    </div>
+      </Sidebar>
+    </CartContainer>
   )
 }
 
