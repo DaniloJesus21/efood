@@ -16,8 +16,18 @@ import fechar from '../../assets/images/fechar.png'
 import type { Prato } from '../../pages/Home'
 import { getDescricao } from '../../utils'
 
+import { useDispatch } from 'react-redux'
+import { add, open } from '../../store/reducers/Cart'
+
 const FoodCard = ({ prato }: { prato: Prato }) => {
   const [showModal, setShowModal] = useState(false)
+
+  const dispatch = useDispatch()
+
+  const addToCart = () => {
+    dispatch(add(prato))
+    dispatch(open())
+  }
 
   return (
     <>
@@ -49,7 +59,7 @@ const FoodCard = ({ prato }: { prato: Prato }) => {
                     <p>{prato.descricao}</p>
                     <p>Serve: {prato.porcao}</p>
                   </Description>
-                  <StyledButton type="button">
+                  <StyledButton type="button" onClick={addToCart}>
                     {`Adicionar ao carrinho - R$ ${prato.preco.toFixed(2)}`}
                   </StyledButton>
                 </ContentModal>
